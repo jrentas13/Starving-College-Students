@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    gap: 20px;
+    padding: 10px 40px;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+#AccountArea{
+    margin-left: auto;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+}
+nav a {
+    height: 50px;
+    width: 100px;
+    align-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
+nav a:hover{
+    background-color: rgb(193, 193, 193);
+}
+
+#SignUpButton, #LogInButton {
+    height: 50px;
+    width: 80px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
