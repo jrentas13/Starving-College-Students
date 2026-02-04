@@ -1,0 +1,97 @@
+header{
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    gap: 20px;
+    padding: 10px 40px;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+#AccountArea{
+    margin-left: auto;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+}
+nav a {
+    height: 50px;
+    width: 100px;
+    align-content: center;
+    text-align: center;
+    border-radius: 5px;
+}
+nav a:hover{
+    background-color: rgb(193, 193, 193);
+}
+
+#SignUpButton, #LogInButton {
+    height: 50px;
+    width: 80px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #ddd;
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    text-decoration: none;
+    color: #999;
+}
+
+/* End footer */
