@@ -38,6 +38,7 @@ nav a:hover{
 .searchbar button img{
     height: 25px;
 }
+
 .searchbar button{
     padding: 0;
     height: 25px;
@@ -45,3 +46,64 @@ nav a:hover{
     box-sizing: border-box;
     overflow: hidden;
 }
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #ddd;
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    text-decoration: none;
+    color: #999;
+}
+
+/* End footer */
