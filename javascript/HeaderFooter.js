@@ -6,10 +6,9 @@ header.innerHTML = `<a href="https://pngtree.com/freepng/cute-boy-chinese-chef-c
 </a>
 <nav>
     <a href="index.html">Home</a>
-    <a>Search</a>
-    <a>Favorites</a>
-    <a>Upload</a>
-</nav>
+    <a href="search.html">Search</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="upload.html">Upload</a>
 <div class="searchbar">
     <input type="text" id="search-input" placeholder="Find a recipe" length="3">
     <button id="search-button"><img src="images/Pan_Search_Icon.PNG" height="15" alt="recipes icon"></button>
