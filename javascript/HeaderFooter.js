@@ -19,27 +19,35 @@ header.innerHTML = `<a href="https://pngtree.com/freepng/cute-boy-chinese-chef-c
     <button id="LogInButton">Log in</button>
 </div>`
 
-footer.innerHTML = `<div class="footerlogo">
-    <img src="images/Cartoon-ish_Chef.png" height="75" alt="SCS Logo">
+footer.innerHTML = `<div class="footer-top">
+<div class="footer-logo">
+    <img src="images/Cartoon-ish_Chef.png" alt="SCS Logo">
 </div>
 
-    <div class="footer-social">
-        <a href="https://www.instagram.com/studentscookbook555/">
-            <img src="images/instalogo.png" alt="Instagram">
-        </a>
-        <a href="https://facebook.com">
-            <img src="images/fblogo.png" alt="Facebook">
-        </a>
-        <a href="https://x.com/CollegeSta99909">
-            <img src="images/xlogo.png" alt="X">
-        </a>
-    </div>
+<div class="footer-links">
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link one</a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link two</a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link three</a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link four</a>
+</div>
+
+<div class="footer-social">
+    <a href="https://www.instagram.com/studentscookbook555/">
+        <img src="images/instalogo.png" alt="Instagram">
+    </a>
+    <a href="https://facebook.com">
+        <img src="images/fblogo.png" alt="Facebook">
+    </a>
+    <a href="https://x.com/CollegeSta99909">
+        <img src="images/xlogo.png" alt="X">
+    </a>
+</div>
 </div>
 
 <div class="footer-bottom">
-    <p>© 2026 Starving College Students Cookbook. All rights reserved.</p>
-    <div class="footer-legal">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Service</a>
-    </div>
+<p>© 2026 Starving College Students Cookbook. All rights reserved.</p>
+<div class="footer-legal">
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy Policy</a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms of Service</a>
+</div>
 </div>`
