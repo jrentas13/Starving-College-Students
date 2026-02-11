@@ -34,3 +34,14 @@ nav a:hover{
     margin-left: 10px;
     border-radius: 10px;
 }
+
+.searchbar button img{
+    height: 25px;
+}
+.searchbar button{
+    padding: 0;
+    height: 25px;
+    width: 25px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
