@@ -25,10 +25,10 @@ footer.innerHTML = `<div class="footer-top">
 </div>
 
 <div class="footer-links">
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link one</a>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link two</a>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link three</a>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Link four</a>
+    <a href="index.html">Home</a>
+    <a href="search.html">Search</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="upload.html">Upload</a>
 </div>
 
 <div class="footer-social">
