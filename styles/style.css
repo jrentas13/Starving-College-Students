@@ -34,14 +34,12 @@ nav a:hover{
     margin-left: 10px;
     border-radius: 10px;
 }
-<<<<<<< Updated upstream
-=======
 
 .searchbar button img{
     height: 25px;
 }
 
-.searchbar button{
+#search-button{
     padding: 0;
     height: 25px;
     width: 25px;
@@ -108,9 +106,4 @@ footer {
     color: #999;
 }
 
-<<<<<<< Updated upstream
 /* End footer */
->>>>>>> Stashed changes
-=======
-/* End footer */
->>>>>>> Stashed changes
