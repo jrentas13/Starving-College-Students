@@ -7,15 +7,28 @@ header{
     padding: 10px 40px;
     align-items: center;
     border-bottom: 1px solid black;
+    /* flex: 1 1 160px; */
 }
 
 #AccountArea{
     margin-left: auto;
+    display: flex;
 }
 
 nav {
     display: flex;
     gap: 5px;
+    height: 100%;
+    align-items: center;
+    flex: 1 1 200px;
+    flex-wrap: wrap;
+}
+#nav2{
+    display: flex;
+    gap: 5px;
+    height: 100%;
+    align-items: center;
+    flex: 1 1 250px;
 }
 nav a {
     height: 50px;
@@ -23,6 +36,7 @@ nav a {
     align-content: center;
     text-align: center;
     border-radius: 5px;
+    flex: 1 1 50px;
 }
 nav a:hover{
     background-color: rgb(193, 193, 193);
@@ -31,6 +45,93 @@ nav a:hover{
 #SignUpButton, #LogInButton {
     height: 50px;
     width: 80px;
+    margin: 5px 0;
     margin-left: 10px;
     border-radius: 10px;
+    font-size: 1.2em;
 }
+
+#search-button img{
+    height: 25px;
+}
+.searchbar {
+    display: flex;
+    height: 30px;
+    flex: 1 1 244px;
+}
+#search-input {
+    flex: 1 1 150px;
+}
+
+#search-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    margin: 0 5px;
+    box-sizing: content-box;
+    overflow: hidden;
+}
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #ddd;
+    padding: 20px 40px;
+    background-color: #fff;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #555;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal a {
+    text-decoration: none;
+    color: #999;
+}
+
+/* End footer */
