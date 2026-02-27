@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCS Cookbook</title>
+    <link rel="icon" type="image/x-icon" href="/images/Cartoon-ish_Chef.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="styles/style.css"/>
+    <script src="javascript/HeaderFooter.js" defer></script>
+    <link rel="stylesheet" href="styles/search.css"/>
+</head>
+
+    <header>
+    </header>
 
     </head>
     <body>
-
+        <form id="search">
+            <div id="searchBarArea">
+                <input type="text" name="search" id="search-input-main" placeholder="Find a recipe" length="3">
+                <button id="search-button-main"><img src="images/Pan_Search_Icon.PNG" alt="recipes icon"></button>
+            </div>
+            <div id="advancedSearch">
+                <p>> Advanced <</p>
+                <!-- Gonna collapse/expand the area bellow here-->
+                <div id="collapseArea">
+                    <label for="order">Order by:</label>
+                    <select id="order" name="order">
+                        <option value="date">Date</option>
+                        <option value="dateASC">Date Ascending</option>
+                        <option value="popular">Popularity</option>
+                        <option value="price">Price</option>
+                    </select>
+                    <label for="tags">Tags:</label>
+                    <input id="tags" name="tags" placeholder="Input tags here">
+                </div>
+            </div>
+        </form>
+        <div id="resultsArea">
+            
+        </div>
     </body>
 </html>
