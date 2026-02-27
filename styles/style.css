@@ -64,11 +64,14 @@ nav a:hover{
 }
 
 #search-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     margin: 0 5px;
-    box-sizing: border-box;
+    box-sizing: content-box;
     overflow: hidden;
 }
 
