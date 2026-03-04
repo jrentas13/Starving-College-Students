@@ -4,7 +4,7 @@ form {
   padding: 20px;
 }
 
-input {
+form input {
   width: 100%;
   padding: 20px;
   margin: 8px 0;
@@ -14,7 +14,7 @@ input {
   box-sizing: border-box;
 }
 
-label {
+form label {
     display: block;
     font-size: 30px;
 }
@@ -31,7 +31,7 @@ label {
     gap: 20px;
 }
 
-textarea {
+body textarea {
     width: 100%;              /* Full width */
     height: 150px;            /* Height for multiple lines */
     padding: 10px;            /* Inner spacing */
