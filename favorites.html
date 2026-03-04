@@ -1,25 +1,68 @@
 <!DOCTYPE html>
-<html>
-    
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCS Cookbook</title>
+    <title>SCS Cookbook - Favorites</title>
+
     <link rel="icon" type="image/x-icon" href="/images/Cartoon-ish_Chef.png">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/favorite.css">
+
+    <!-- Header Script -->
     <script src="javascript/HeaderFooter.js" defer></script>
-    <link rel="stylesheet" href="styles/homepage.css"/>
 </head>
 
-    <header>
-    </header>
+<body>
 
-    <body>
+<header></header>
 
-    </body>
+<main>
+    <h1>Favorite Recipes</h1>
+    <h2>Here are your favorite recipes!</h2>
 
-    <footer>
-    </footer>
+    <!-- ❤️ Liked Recipes -->
+    <section>
+        <h2>❤️ Liked Recipes</h2>
+        <div id="liked-grid" class="recipe-grid"></div>
+    </section>
 
+    <!-- ⭐ All Favorites -->
+    <section>
+        <h2>All Favorites</h2>
+
+        <div id="favorite-grid" class="recipe-grid">
+
+            <div class="favorite-card">
+                <button class="like-btn">🤍</button>
+                <img src="images/chicken.png" alt="Grilled Chicken">
+                <h3>Grilled Chicken</h3>
+            </div>
+
+            <div class="favorite-card">
+                <button class="like-btn">🤍</button>
+                <img src="images/chicken.png" alt="Pasta Alfredo">
+                <h3>Pasta Alfredo</h3>
+            </div>
+
+            <div class="favorite-card">
+                <button class="like-btn">🤍</button>
+                <img src="images/chicken.png" alt="Street Tacos">
+                <h3>Street Tacos</h3>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script src="javascript/favorite.js"></script>
+
+<footer></footer>
+
+</body>
 </html>
