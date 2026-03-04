@@ -15,8 +15,8 @@ header.innerHTML =`
     </div>
     <div id="AccountArea">
         <!-- Use JS to replace this with an account button -->
-        <button id="SignUpButton">Sign Up</button>
-        <button id="LogInButton">Log in</button>
+        <a href="signup.html"><button id="SignUpButton">Sign Up</button></a>
+        <a href="login.html"><button id="LogInButton">Log in</button></a>
     </div>
 <div>
 <nav>`
