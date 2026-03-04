@@ -1,0 +1,45 @@
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+    display: block;
+    font-size: 30px;
+}
+
+#top-conatiner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+#recipe-basic-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+textarea {
+    width: 100%;              /* Full width */
+    height: 150px;            /* Height for multiple lines */
+    padding: 10px;            /* Inner spacing */
+    font-size: 16px;          /* Readable font size */
+    font-family: Arial, sans-serif;
+    line-height: 1.5;         /* Better line spacing */
+    border: 2px solid #ccc;   /* Border styling */
+    border-radius: 5px;       /* Rounded corners */
+    resize: vertical;         /* Allow vertical resizing only */
+    box-sizing: border-box;   /* Include padding in width */
+}

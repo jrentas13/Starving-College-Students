@@ -10,13 +10,42 @@
     <link rel="stylesheet" href="styles/style.css"/>
     <script src="javascript/HeaderFooter.js" defer></script>
     <link rel="stylesheet" href="styles/homepage.css"/>
+    <link rel="stylesheet" href="styles/upload.css"/>
 </head>
 
     <header>
     </header>
 
     <body>
-
+        <form>
+            <div id="top-conatiner">
+                <div id="top-container-info">
+                    <input type="text" id="fname" name="fname" placeholder="Recipe Name" required><br><br>
+                    
+                    <div id = "recipe-basic-info">
+                        <label for="servings">Servings:</label>
+                        <input type="text" id="servings" name="servings" placeholder="Serving size" required><br><br>
+                        <label for="preptime">Prep Time:</label>
+                        <input type="text" id="preptime" name="preptime" placeholder="Prep Time" required><br><br>
+                        <label for="Cook Time">Cook Time:</label>
+                        <input type="text" id="cooktime" name="cooktime" placeholder="Cook Time" required><br><br>
+                        <p>(As needed)</p>
+                    </div>
+                </div>
+                <img src="images/chicken.png" height="500" alt="Sample recipe image">
+            </div>
+            <div>
+                <label for="ingredients">(Ingredients Form)</label><br><br>
+            </div>
+            <div id = "recipe-description">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Type your text here..."></textarea>
+            </div>
+            <div id = "recipe-tags">
+                <label for="tags">Tags:</label>
+                <textarea id="tags" name="tags" placeholder="Placeholder"></textarea>
+            </div>
+        </form>
     </body>
 
     <footer>
