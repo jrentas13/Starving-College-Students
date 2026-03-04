@@ -14,7 +14,7 @@ const getRecipesOpts =  (fastify) => { return {
                         { type: 'string' }
                     ]
                 },
-                price: { type: 'decimal' },
+                price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
                 cook_time: { type: 'integer' },
                 servings: {type: 'integer' },
             }
@@ -27,7 +27,7 @@ const getRecipeRoute = async( fastify, opts) => {
         const { idRecipe, page, per_page  } = request.query;
 
         const recipeQuery = fastify.mysql.format(
-            `SELECT * FROM sys.recipes
+            `SELECT * FROM starving_college_students.recipes
             WHERE idRecipe = ?
             LIMIT ?
             OFFSET ?`,

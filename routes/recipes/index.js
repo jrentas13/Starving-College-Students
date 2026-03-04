@@ -1,6 +1,6 @@
-import getRecipeRoute from './getRecipes';
-import postRecipeRoute from './postRecipes';
-import putRecipeRoute from './putRecipes';
+import getRecipeRoute from './getRecipes.js';
+import postRecipeRoute from './postRecipes.js';
+import putRecipeRoute from './putRecipes.js';
 
 //PREFIX: /recipes
 const recipeRoutes = async (fastify, opts) => {

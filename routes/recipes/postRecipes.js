@@ -6,15 +6,13 @@ const postRecipeOpts = (fastify) => { return {
             properties: {
                 name: { type: 'string' },
                 description: { type: 'string' },
-                ingredients: { type: 'string' },
-                instructions: { type: 'string' },
                 tags: {
                     anyOf: [
                         { type: 'array', items: { type: 'string' } },
                         { type: 'string' }
                     ]
                 },
-                price: { type: 'decimal' },
+                price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
                 cook_time: { type: 'integer' },
                 servings: {type: 'integer' },
             }
@@ -24,13 +22,13 @@ const postRecipeOpts = (fastify) => { return {
 
 const postRecipeRoute = async( fastify, opts) => {
     fastify.post('/', postRecipeOpts(fastify), async (request, response) => {
-        const { name, description, ingredients, instructions, tags, price, cook_time, servings } = request.body;
+        const { name, description, tags, price, cook_time, servings } = request.body;
 
         const insertRecipeQuery = fastify.mysql.format(
-            `INSERT INTO sys.recipes 
-            ( name, description, ingredients, instructions, tags, price, cook_time, servings ) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-            [ name, description, ingredients, instructions, JSON.stringify(tags), price, cook_time, servings ]
+            `INSERT INTO starving_college_students.recipes 
+            ( name, description, tags, price, cook_time, servings ) 
+            VALUES (?, ?, ?, ?, ?, ?)`,
+            [ name, description, JSON.stringify(tags), price, cook_time, servings ]
         );
 
         try {

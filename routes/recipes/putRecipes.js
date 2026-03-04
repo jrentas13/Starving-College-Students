@@ -21,7 +21,7 @@ const putRecipeOpts = (fastify) => { return {
                         { type: 'string' }
                     ]
                 },
-                price: { type: 'decimal' },
+                price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
                 cook_time: { type: 'integer' },
                 servings: {type: 'integer' },
             }
@@ -35,7 +35,7 @@ const putRecipeRoute = async( fastify, opts) => {
         const { name, description, ingredients, instructions, tags, price, cook_time, servings } = request.body;
 
         const recipeQuery = fastify.mysql.format(
-            `SELECT * FROM sys.recipes WHERE idRecipe = ?`,
+            `SELECT * FROM starving_college_students.recipes WHERE idRecipe = ?`,
             [ idRecipe ]
         );
 
