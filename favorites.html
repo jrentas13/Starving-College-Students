@@ -2,65 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCS Cookbook - Favorites</title>
 
-    <link rel="icon" type="image/x-icon" href="/images/Cartoon-ish_Chef.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/homepage.css">
-    <link rel="stylesheet" href="styles/favorite.css">
+<title>SCS Cookbook - Favorites</title>
 
-    <!-- Header Script -->
-    <script src="javascript/HeaderFooter.js" defer></script>
+<link rel="icon" type="image/x-icon" href="/images/SCS_Logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="styles/favorites.css">
+
+<script src="javascript/HeaderFooter.js" defer></script>
+<script src="javascript/favorite.js" defer></script>
+
 </head>
 
 <body>
 
 <header></header>
 
-<main>
-    <h1>Favorite Recipes</h1>
-    <h2>Here are your favorite recipes!</h2>
+<main class="favorites-container">
 
-    <!-- ❤️ Liked Recipes -->
-    <section>
-        <h2>❤️ Liked Recipes</h2>
-        <div id="liked-grid" class="recipe-grid"></div>
-    </section>
+<h1>Favorite Recipes</h1>
+<h2>Here are your favorite recipes!</h2>
 
-    <!-- ⭐ All Favorites -->
-    <section>
-        <h2>All Favorites</h2>
+<section>
 
-        <div id="favorite-grid" class="recipe-grid">
+<h2>❤️ Liked Recipes</h2>
 
-            <div class="favorite-card">
-                <button class="like-btn">🤍</button>
-                <img src="images/chicken.png" alt="Grilled Chicken">
-                <h3>Grilled Chicken</h3>
-            </div>
+<div id="liked-grid" class="favorites-grid">
+<!-- liked recipes will appear here -->
+</div>
 
-            <div class="favorite-card">
-                <button class="like-btn">🤍</button>
-                <img src="images/chicken.png" alt="Pasta Alfredo">
-                <h3>Pasta Alfredo</h3>
-            </div>
+</section>
 
-            <div class="favorite-card">
-                <button class="like-btn">🤍</button>
-                <img src="images/chicken.png" alt="Street Tacos">
-                <h3>Street Tacos</h3>
-            </div>
+<section>
 
-        </div>
-    </section>
+<h2>All Favorites</h2>
+
+<div id="favorite-grid" class="favorites-grid">
+
+<!-- Recipe Card -->
+
+<div class="favorite-card">
+<button class="like-btn">🤍</button>
+<img src="images/chicken.png" alt="Grilled Chicken">
+<h3>Grilled Chicken</h3>
+</div>
+
+<div class="favorite-card">
+<button class="like-btn">🤍</button>
+<img src="images/chicken.png" alt="Pasta Alfredo">
+<h3>Pasta Alfredo</h3>
+</div>
+
+<div class="favorite-card">
+<button class="like-btn">🤍</button>
+<img src="images/chicken.png" alt="Street Tacos">
+<h3>Street Tacos</h3>
+</div>
+
+<div class="favorite-card">
+<button class="like-btn">🤍</button>
+<img src="images/chicken.png" alt="Chicken Soup">
+<h3>Chicken Soup</h3>
+</div>
+
+</div>
+
+</section>
+
 </main>
-
-<script src="javascript/favorite.js"></script>
 
 <footer></footer>
 
