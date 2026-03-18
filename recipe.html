@@ -1,48 +1,88 @@
 <!DOCTYPE html>
-<html>
-    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCS Cookbook</title>
-    <link rel="icon" type="image/x-icon" href="/images/SCS_Logo.png">
+    <title>SCS Cookbook - Recipe</title>
+    <link rel="icon" type="image/x-icon" href="/images/Cartoon-ish_Chef.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/homepage.css">
+    <link rel="stylesheet" href="styles/recipe.css">
+
     <script src="javascript/HeaderFooter.js" defer></script>
-    <link rel="stylesheet" href="styles/homepage.css"/>
+    <script src="javascript/favorite.js" defer></script>
 </head>
+<body>
 
-    <header>
-    </header>
+<header></header>
 
-    <body>
-        <div id="top-conatiner">
-            <div id="top-container-info">
+<main class="recipe-page">
+
+    <section id="top-container">
+        <div id="top-container-info">
+
+            <div class="title-row">
                 <h1>Recipe Title</h1>
-                <img src="#" height="25" alt="Favorites Icon">
-                <div id = "recipe-basic-info">
-                    <p>(Recipe info)</p>
-                </div>
-                <div id = "recipe-description">
-                    <p>(Recipe description)</p>
-                </div>
+                <button class="like-btn" aria-label="Favorite recipe">🤍</button>
             </div>
-            <img src="images/chicken.png" height="500" alt="Sample recipe image">
-        </div>
-        <button id="print-button">Print Out</button>
-        <div id = "ingredients-box">
-            <h2>Ingredients</h2>
-        </div>
-        <div id = "instructions-box">
-            <h2>Instructions</h2>
-        </div>
-        <div id = "tags">
-            <p>Tags</p>
+
+            <div id="recipe-owner">
+                <p><strong>By:</strong> Author Name</p>
+            </div>
+
+            <div id="recipe-basic-info">
+                <p><strong>Prep:</strong> Time</p>
+                <p><strong>Cook:</strong> Time</p>
+                <p><strong>Serves:</strong> Amount</p>
+            </div>
+
+            <div id="recipe-description">
+                <p>Short description of the recipe.</p>
+            </div>
+
+            <div class="button-row">
+                <button id="print-button" type="button">Print</button>
+                <button id="save-button" type="button">Save</button>
+            </div>
+
         </div>
 
-    </body>
+        <div class="recipe-image-box">
+            <img src="images/chicken.png" alt="Recipe Image">
+        </div>
+    </section>
 
-    <footer>
-    </footer>
+    <section id="ingredients-box">
+        <h2>Ingredients</h2>
+        <ul>
+            <li>Ingredient 1</li>
+            <li>Ingredient 2</li>
+            <li>Ingredient 3</li>
+        </ul>
+    </section>
 
+    <section id="instructions-box">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Step 1</li>
+            <li>Step 2</li>
+            <li>Step 3</li>
+        </ol>
+    </section>
+
+    <section id="tags">
+        <h2>Tags</h2>
+        <div class="tag-list">
+            <p>Tag</p>
+            <p>Tag</p>
+            <p>Tag</p>
+        </div>
+    </section>
+
+</main>
+
+<footer></footer>
+
+</body>
 </html>
