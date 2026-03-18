@@ -4,7 +4,7 @@ import putIngredientRoute from './putIngredients.js';
 import deleteIngredientRoute from './deleteIngredient.js';
 
 // PREFIX: /ingredients
-const ingredientRoutes = async(fastify, opts) => {
+const ingredientRoutes = async (fastify, opts) => {
     await fastify.register(getIngredientRoute);
     await fastify.register(postIngredientRoute);
     await fastify.register(putIngredientRoute);
