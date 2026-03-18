@@ -10,10 +10,10 @@ http:
     type: json
     data: |-
       {
-        "name": "Fried Chicken Coating Mix",
-        "description": "Dry flour based coating for fried chicken.",
-        "price": 15.00,
-        "cook_time": 35,
+        "name": "Chicken Caesar Wraps",
+        "description": "Marinated chicken and lettuce wrapped in a tortilla.",
+        "price": 20.00,
+        "cook_time": 20,
         "servings": 8
       }
   auth: inherit
