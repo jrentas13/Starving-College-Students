@@ -1,6 +1,8 @@
 /* FAVORITES PAGE LAYOUT */
 
 .favorites-container {
+    text-align: center;
+    color: black;
     padding: 30px 40px;
 }
 
@@ -22,7 +24,7 @@ section {
 .favorite-card {
     position: relative;
     background: white;
-    border: 2px solid black;
+    border: 2px solid rgb(71, 65, 65);
     border-radius: 30px;
     padding: 15px;
     text-align: center;
@@ -54,7 +56,7 @@ section {
 /* HEART BUTTON */
 .like-btn {
     position: absolute;
-    top: 200px;
+    top: 210px;
     right: 12px;
     border: none;
     background: none;
@@ -75,4 +77,76 @@ grid-template-columns: repeat(2, 1fr);
 .favorites-grid {
 grid-template-columns: 1fr;
 }
+}
+
+/* body {
+    background-color: #eff7aa;
+} */
+ /* body {
+  background-image: url("images/stick_kitchen_choas3.png");
+  background-size: cover;
+  background-position: center;
+} */
+
+/* Layout Adjustment */
+.favorites-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on mobile */
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Sidebar Styling */
+.filter-sidebar {
+    flex: 0 0 150px; /* Fixed width of 150px */
+    background: #ece7e7;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #000000;
+    text-align: left;
+    position: sticky;
+    top: 20px; /* Sticks to top when scrolling */
+}
+
+.main-content-area {
+    flex: 1; /* Takes up remaining space */
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.filter-group select, .filter-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#reset-filters {
+    width: 100%;
+    padding: 10px;
+    background: #474141;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive adjustment */
+@media (max-width: 800px) {
+    .favorites-container {
+        flex-direction: column;
+    }
+    .filter-sidebar {
+        flex: 1 1 100%;
+        width: 100%;
+        position: relative;
+    }
 }
