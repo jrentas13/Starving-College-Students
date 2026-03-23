@@ -2,14 +2,14 @@ const putRecipeOpts = (fastify) => { return {
     schema: {
         params: {
             type: 'object',
-            required: [ 'idRecipe' ],
+            required: [ 'recipe_id' ],
             properties: {
-                idRecipe: { type: 'integer' }
+                recipe_id: { type: 'integer' }
             }
         },
         body: {
             type: 'object',
-            required: [ 'name'],
+            required: [ 'name' ],
             properties: {
                 name: { type: 'string' },
                 description: { type: 'string' },
@@ -31,12 +31,12 @@ const putRecipeOpts = (fastify) => { return {
 
 const putRecipeRoute = async( fastify, opts) => { 
     fastify.put('/:idRecipe', putRecipeOpts(fastify), async (request, response) => {
-        const { idRecipe } = request.params;
+        const { recipe_id } = request.params;
         const { name, description, ingredients, instructions, tags, price, cook_time, servings } = request.body;
 
         const recipeQuery = fastify.mysql.format(
             `SELECT * FROM starving_college_students.recipes WHERE idRecipe = ?`,
-            [ idRecipe ]
+            [ recipe_id ]
         );
 
         const [ recipeRows, ] = await fastify.mysql.query(recipeQuery);
@@ -63,17 +63,17 @@ const putRecipeRoute = async( fastify, opts) => {
         const updateServ = servings ? servings: currServ;
 
         const updateRecipeQuery = fastify.mysql.format(
-            `UPDATE sys.recipe SET name = ?, description = ?, ingredients = ?, instructions = ?,
+            `UPDATE starving_college_students.recipe SET name = ?, description = ?, ingredients = ?, instructions = ?,
                 price = ?, cook_time = ?, servings = ?
-            WHERE idRecipe = ?`,
-            [ updateName, updateDes, updateIng, updateInst, updatePrice, updateCook, updateServ, idRecipe ]
-        )
+            WHERE recipe_id = ?`,
+            [ updateName, updateDes, updateIng, updateInst, updatePrice, updateCook, updateServ, recipe_id ]
+        );
 
         try {
             await fastify.mysql.query(updateRecipeQuery);
         } catch (err) {
             fastify.log.error(err);
-            return response.status(500).send({ error : `Unable to update recipe ${idRecipe}.` });
+            return response.status(500).send({ error : `Unable to update recipe ${recipe_id}.` });
         }
 
         return response.status(200).send({ message: 'Succesfully updated recipe.' });
