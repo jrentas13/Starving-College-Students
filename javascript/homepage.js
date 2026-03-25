@@ -5,12 +5,11 @@ function formatCard(recipe){
     if (minidesc.length > 100){
         minidesc = minidesc.substring(0,98) + "..."
     }
-    let htmlout = `<div class="recipe-container">
+    let htmlout = `<a href="recipe.html?id=${recipe.recipe_id}"><div class="recipe-container">
                 <img src="images/chicken.png" height="100" alt="Sample recipe image">
                 <h3 class="recipe-name">${recipe.name}</h3>
                 <p class="description">${minidesc}</p>
-                <a href="#">Read More</a>
-            </div>`;
+            </div></a>`;
     return (htmlout);
 }
 
