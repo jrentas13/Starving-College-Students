@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeFilter = document.getElementById("time-filter");
     const resetBtn = document.getElementById("reset-filters");
 
+
     // --- LIKE / UNLIKE LOGIC ---
     document.addEventListener("click", function(event) {
         if (!event.target.classList.contains("like-btn")) return;
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    
     // --- FILTER LOGIC ---
     function filterRecipes() {
         const selectedTag = tagFilter.value;

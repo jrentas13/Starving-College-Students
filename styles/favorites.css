@@ -98,8 +98,8 @@ grid-template-columns: 1fr;
 
 /* Sidebar Styling */
 .filter-sidebar {
-    flex: 0 0 150px; /* Fixed width of 150px */
-    background: #ece7e7;
+    flex: 0 0 150px; 
+    background: #f7ffb1;
     padding: 20px;
     border-radius: 15px;
     border: 1px solid #000000;
@@ -132,7 +132,7 @@ grid-template-columns: 1fr;
 #reset-filters {
     width: 100%;
     padding: 10px;
-    background: #474141;
+    background: #504f4a;
     color: white;
     border: none;
     border-radius: 5px;
