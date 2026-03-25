@@ -38,7 +38,7 @@
 }
 #collapseArea {
     padding: 17px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
     gap:20px;
 }
@@ -67,4 +67,8 @@
     border-width: 2px;
     border-radius: 5px;
     padding: 25px;
+}
+a {
+    text-decoration: none;
+    color: black;
 }
