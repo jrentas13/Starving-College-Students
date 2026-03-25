@@ -80,6 +80,11 @@ nav a:hover{
     overflow: hidden;
 }
 
+#recipe-container-display a {
+    text-decoration: none;
+    color: black;
+}
+
 /* Footer */
 
 footer {

@@ -42,7 +42,10 @@ if (tags != null){
     let taglist = tags.split(" ");
 }
 async function getRecipes(page = 1, perPage = 10) {
+
     const response = await fetch(`/recipes?page=${page}&per_page=${perPage}`);
+    // The following line should be uncommented when the endpoint is made.
+    // const response = await fetch(`/recipes?page=${page}&per_page=${perPage}&name=${name}&order=${order}&tags=${tags}`);
     
     if (!response.ok) {
         // throw new Error("Failed to fetch recipes");
