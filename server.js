@@ -21,8 +21,8 @@ async function start() {
             database: process.env.DB_NAME,
         });
 
-        await server.register(cors, {
-            origin: "*"     // Replace with actual website URL once out of development
+        server.register(cors, {
+            origin: "*"     // replace with website's URL when out of development
         });
 
         // Register Routes
