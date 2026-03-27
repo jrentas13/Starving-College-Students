@@ -51,6 +51,11 @@ nav a:hover{
     font-size: 1.2em;
 }
 
+#SignUpButton {
+    background: #73d97f;
+    color: #fff;
+}
+
 #search-button img{
     height: 25px;
 }
