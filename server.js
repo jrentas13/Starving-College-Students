@@ -5,11 +5,13 @@ import cors from '@fastify/cors';
 
 import recipeRoutes from './routes/recipes/index.js';
 import ingredientRoutes from './routes/ingredients/index.js';
+import authRoutes from './routes/auth/index.js';
 
 // requestAnimationFrame('dotenv').config();
 const server = fastify({ logger: true });
 
 async function start() {
+    
     try {
         //Registering MySQL
         await server.register(mysql, {
@@ -28,6 +30,7 @@ async function start() {
         // Register Routes
         await server.register(recipeRoutes, { prefix: '/recipes' });
         await server.register(ingredientRoutes, { prefix: '/ingredients' });
+        await server.register(authRoutes, { prefix: '/auth' });
 
         const port = process.env.PORT || 8080;
         await server.listen({ port: Number(port), host: '127.0.0.1' });
