@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { fastify } from 'fastify';
 import mysql from '@fastify/mysql';
+import cors from '@fastify/cors';
 
 import recipeRoutes from './routes/recipes/index.js';
 import ingredientRoutes from './routes/ingredients/index.js';
@@ -18,6 +19,10 @@ async function start() {
             user: process.env.DB_USER,
             password: process.env.DB_PASS,
             database: process.env.DB_NAME,
+        });
+
+        await server.register(cors, {
+            origin: "*"     // Replace with actual website URL once out of development
         });
 
         // Register Routes
