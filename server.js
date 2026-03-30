@@ -5,6 +5,7 @@ import cors from '@fastify/cors';
 
 import recipeRoutes from './routes/recipes/index.js';
 import ingredientRoutes from './routes/ingredients/index.js';
+import instructionRoutes from './routes/instructions/index.js';
 
 // requestAnimationFrame('dotenv').config();
 const server = fastify({ logger: true });
@@ -21,13 +22,14 @@ async function start() {
             database: process.env.DB_NAME,
         });
 
-        await server.register(cors, {
-            origin: "*"     // Replace with actual website URL once out of development
+        server.register(cors, {
+            origin: "*"     // replace with website's URL when out of development
         });
 
         // Register Routes
         await server.register(recipeRoutes, { prefix: '/recipes' });
         await server.register(ingredientRoutes, { prefix: '/ingredients' });
+        await server.register(instructionRoutes, { prefix: '/instructions' });
 
         const port = process.env.PORT || 8080;
         await server.listen({ port: Number(port), host: '127.0.0.1' });
