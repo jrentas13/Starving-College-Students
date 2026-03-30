@@ -34,7 +34,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
 const recipeName = urlParams.get("search");
-const order = urlParams.get("order");
+let order = urlParams.get("order");
 const tags = urlParams.get("tags"); //Gonna be a string. Comma separated or space? Probably space
 const page = urlParams.get("page");
 
@@ -44,6 +44,8 @@ if (tags != null){
 }
 async function getRecipes(page = 1, perPage = 10) {
     let response;
+    if (page == null) page = 1;
+    if (order == null) order = 'created_at';
     // try{
     //     response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}`);
     // } catch {
@@ -51,9 +53,9 @@ async function getRecipes(page = 1, perPage = 10) {
     // }
     // The following line should be uncommented when the endpoint is made.
     if(taglist != null){
-        response = await fetch(`http://127.0.0.1:8080//recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}&tags=${taglist}`);
+        response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}&tags=${taglist}`);
     } else {
-        response = await fetch(`/recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}&tags=${taglist}`);
+        response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}`);
     }
     
     if (!response.ok) {
