@@ -33,19 +33,30 @@ function formatCard(recipe){
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-const name = urlParams.get("search");
-const order = urlParams.get("order");
+const recipeName = urlParams.get("search");
+let order = urlParams.get("order");
 const tags = urlParams.get("tags"); //Gonna be a string. Comma separated or space? Probably space
 const page = urlParams.get("page");
 
+let taglist = null;
 if (tags != null){
-    let taglist = tags.split(" ");
+    taglist = tags.split(" ");
 }
 async function getRecipes(page = 1, perPage = 10) {
-
-    const response = await fetch(`/recipes?page=${page}&per_page=${perPage}`);
+    let response;
+    if (page == null) page = 1;
+    if (order == null) order = 'created_at';
+    // try{
+    //     response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}`);
+    // } catch {
+    //     response = await fetch(`/recipes?page=${page}&per_page=${perPage}`);
+    // }
     // The following line should be uncommented when the endpoint is made.
-    // const response = await fetch(`/recipes?page=${page}&per_page=${perPage}&name=${name}&order=${order}&tags=${tags}`);
+    if(taglist != null){
+        response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}&tags=${taglist}`);
+    } else {
+        response = await fetch(`http://127.0.0.1:8080/recipes?page=${page}&per_page=${perPage}&name=${recipeName}&order=${order}`);
+    }
     
     if (!response.ok) {
         // throw new Error("Failed to fetch recipes");
