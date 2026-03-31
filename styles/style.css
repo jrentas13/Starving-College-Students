@@ -10,6 +10,11 @@ header{
     /* flex: 1 1 160px; */
 }
 
+header a {
+    text-decoration: none;
+    color: black;
+}
+
 #AccountArea{
     margin-left: auto;
     display: flex;
@@ -78,6 +83,11 @@ nav a:hover{
     margin: 0 5px;
     box-sizing: content-box;
     overflow: hidden;
+}
+
+#recipe-container-display a {
+    text-decoration: none;
+    color: black;
 }
 
 /* Footer */

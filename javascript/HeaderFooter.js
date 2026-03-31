@@ -9,10 +9,10 @@ header.innerHTML =`
     <a href="favorites.html">Favorites</a>
     <a href="upload.html">Upload</a>
 <div id='nav2'>
-    <div class="searchbar">
-        <input type="text" id="search-input" placeholder="Find a recipe" length="3">
+    <form action="search.html" class="searchbar">
+        <input type="text" id="search-input" name="search" placeholder="Find a recipe" length="3">
         <button id="search-button"><img src="images/Pan_Search_Icon.PNG" alt="recipes icon"></button>
-    </div>
+    </form>
     <div id="AccountArea">
         <!-- Use JS to replace this with an account button -->
         <a href="signup.html"><button id="SignUpButton">Sign Up</button></a>
