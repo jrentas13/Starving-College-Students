@@ -9,24 +9,79 @@ document.addEventListener("DOMContentLoaded", () => {
     const resetBtn = document.getElementById("reset-filters");
 
 
-    // --- LIKE / UNLIKE LOGIC ---
+    // LOAD RECIPES FROM STORAGE
+    function loadRecipes() {
+
+        const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+        recipes.forEach(recipe => {
+
+            const card = document.createElement("div");
+            card.classList.add("favorite-card");
+
+            card.setAttribute("data-tag", recipe.tag);
+            card.setAttribute("data-time", recipe.time);
+            card.setAttribute("data-price", "20"); // placeholder
+
+            card.innerHTML = `
+                <button class="like-btn">🤍</button>
+                <button class="delete-btn">🗑️</button>
+                <img src="${recipe.image}" alt="${recipe.name}">
+                <h3>${recipe.name}</h3>
+            `;
+
+            favoriteGrid.appendChild(card);
+        });
+    }
+
+    loadRecipes();
+
+
+    // ❤️ Like/Unlike Logic
     document.addEventListener("click", function(event) {
-        if (!event.target.classList.contains("like-btn")) return;
 
-        const button = event.target;
-        const card = button.parentElement;
+        // LIKE BUTTON
+        if (event.target.classList.contains("like-btn")) {
 
-        if (button.textContent === "🤍") {
-            button.textContent = "❤️";
-            likedGrid.prepend(card);
-        } else {
-            button.textContent = "🤍";
-            favoriteGrid.prepend(card);
+            const button = event.target;
+            const card = button.closest(".favorite-card");
+
+            if (!card) return;
+
+            if (button.textContent === "🤍") {
+                button.textContent = "❤️";
+                likedGrid.prepend(card);
+            } else {
+                button.textContent = "🤍";
+                favoriteGrid.prepend(card);
+            }
         }
+
+
+
+        // Delete button
+        if (event.target.classList.contains("delete-btn")) {
+
+            const card = event.target.closest(".favorite-card");
+            if (!card) return;
+
+            const name = card.querySelector("h3").textContent;
+
+            let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+
+            // Remove matching recipe
+            recipes = recipes.filter(r => r.name !== name);
+
+            localStorage.setItem("recipes", JSON.stringify(recipes));
+
+            // Remove from page
+            card.remove();
+        }
+
     });
 
-    
-    // --- FILTER LOGIC ---
+
+    // Filter Logic
     function filterRecipes() {
         const selectedTag = tagFilter.value;
         const selectedTime = timeFilter.value;
@@ -39,19 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const cardPrice = parseInt(card.dataset.price) || 0;
             const cardTime = parseInt(card.dataset.time) || 0;
 
-            // Check Tag match
             const matchesTag = (selectedTag === "all" || cardTag === selectedTag);
-            
-            // Check Price match
             const matchesPrice = (cardPrice <= maxPrice);
 
-            // Check Time match
             let matchesTime = true;
             if (selectedTime !== "all") {
                 matchesTime = (cardTime <= parseInt(selectedTime));
             }
 
-            // Apply visibility
             if (matchesTag && matchesPrice && matchesTime) {
                 card.style.display = "block";
             } else {
@@ -60,19 +110,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- EVENT LISTENERS FOR FILTERS ---
 
-    // Update price label and filter when slider moves
+    // Filter Controls
     priceInput.addEventListener("input", (e) => {
         priceValue.textContent = `$${e.target.value}`;
         filterRecipes();
     });
 
-    // Filter when dropdowns change
     tagFilter.addEventListener("change", filterRecipes);
     timeFilter.addEventListener("change", filterRecipes);
 
-    // Reset button logic
     resetBtn.addEventListener("click", () => {
         tagFilter.value = "all";
         timeFilter.value = "all";
