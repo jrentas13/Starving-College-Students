@@ -17,6 +17,7 @@ const getRecipesOpts =  (fastify) => { return {
                 price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
                 cook_time: { type: 'integer' },
                 servings: {type: 'integer' },
+                order: { type: 'string' }
             }
         }
     }
@@ -24,14 +25,40 @@ const getRecipesOpts =  (fastify) => { return {
 
 const getRecipeRoute = async( fastify, opts) => {
     fastify.get('/', getRecipesOpts(fastify), async (request, response) => {
-        const { idRecipe, page, per_page  } = request.query;
+        const { page, per_page, name, tags, order } = request.query;
 
-        const recipeQuery = fastify.mysql.format(
-            `SELECT * FROM starving_college_students.recipes
-            LIMIT ?
-            OFFSET ?`,
-            [ per_page, (page -1) * per_page ]
-        );
+        let baseQuery = `SELECT * FROM starving_college_students.recipes`;
+        let conditions = [];
+        let values = [];
+
+        if (name) {
+            conditions.push(`name Like ?`);
+            values.push(`%${name}%`);
+        }
+
+        let tagArray = tags;
+        if(typeof tags === "string") {
+            tagArray = tags.split(",");
+        }
+
+        if (tagArray && tagArray.length > 0) {
+            conditions.push(`tags IN (?)`);
+            values.push(tagArray);
+        }
+
+        if (conditions.length > 0) {
+            baseQuery += " WHERE " + conditions.join(" AND ");
+        }
+
+        const allowedOrderFields = ["created_at", "name", "cook_time"];
+        if (allowedOrderFields.includes(order)) {
+            baseQuery += ` ORDER BY ${order}`;
+        }
+
+        baseQuery += ` LIMIT ? OFFSET ?`;
+        values.push(per_page, (page - 1) * per_page);
+
+        const recipeQuery = fastify.mysql.format(baseQuery, values);
 
         let recipeRows; 
 

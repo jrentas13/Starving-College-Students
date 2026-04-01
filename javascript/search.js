@@ -40,7 +40,7 @@ const page = urlParams.get("page");
 
 let taglist = null;
 if (tags != null){
-    taglist = tags.split(" ");
+    taglist = tags.split(",");
 }
 async function getRecipes(page = 1, perPage = 10) {
     let response;
