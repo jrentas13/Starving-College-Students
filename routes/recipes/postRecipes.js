@@ -13,8 +13,9 @@ const postRecipeOpts = (fastify) => { return {
                     ]
                 },
                 price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
+                prep_time: { type: 'integer' },
                 cook_time: { type: 'integer' },
-                servings: {type: 'integer' },
+                servings: { type: 'integer' }
             }
         }
     }
@@ -22,13 +23,13 @@ const postRecipeOpts = (fastify) => { return {
 
 const postRecipeRoute = async( fastify, opts) => {
     fastify.post('/', postRecipeOpts(fastify), async (request, response) => {
-        const { name, description, tags, price, cook_time, servings } = request.body;
+        const { name, description, tags, price, prep_time, cook_time, servings } = request.body;
 
         const insertRecipeQuery = fastify.mysql.format(
             `INSERT INTO starving_college_students.recipes 
-            ( name, description, tags, price, cook_time, servings ) 
-            VALUES (?, ?, ?, ?, ?, ?)`,
-            [ name, description, JSON.stringify(tags), price, cook_time, servings ]
+            ( name, description, tags, price, prep_time, cook_time, servings ) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [ name, description, JSON.stringify(tags), price, prep_time, cook_time, servings ]
         );
 
         try {

@@ -2,7 +2,7 @@ const getInstructionsByRecipeOpts = (fastify) => { return {
     schema: {
         params: {
             type: 'object',
-            required: [ recipe_id ],
+            required: [ 'recipe_id' ],
             properties: {
                 recipe_id: { type: 'integer' },
             }

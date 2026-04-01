@@ -9,7 +9,6 @@ const putRecipeOpts = (fastify) => { return {
         },
         body: {
             type: 'object',
-            required: [ 'name' ],
             properties: {
                 name: { type: 'string' },
                 description: { type: 'string' },
@@ -22,6 +21,7 @@ const putRecipeOpts = (fastify) => { return {
                     ]
                 },
                 price: { type: 'string', pattern: '^\\d+(\\.\\d{1,2})?$' },
+                prep_time: { type: 'integer' },
                 cook_time: { type: 'integer' },
                 servings: {type: 'integer' },
             }
@@ -30,12 +30,12 @@ const putRecipeOpts = (fastify) => { return {
 }};
 
 const putRecipeRoute = async( fastify, opts) => { 
-    fastify.put('/:idRecipe', putRecipeOpts(fastify), async (request, response) => {
+    fastify.put('/:recipe_id', putRecipeOpts(fastify), async (request, response) => {
         const { recipe_id } = request.params;
-        const { name, description, ingredients, instructions, tags, price, cook_time, servings } = request.body;
+        const { name, description, ingredients, instructions, tags, price, prep_time, cook_time, servings } = request.body;
 
         const recipeQuery = fastify.mysql.format(
-            `SELECT * FROM starving_college_students.recipes WHERE idRecipe = ?`,
+            `SELECT * FROM starving_college_students.recipes WHERE recipe_id = ?`,
             [ recipe_id ]
         );
 
@@ -48,25 +48,27 @@ const putRecipeRoute = async( fastify, opts) => {
 
         const { name: currName } = recipeRows[0];
         const { description: currDes } = recipeRows[0];
-        const { ingredients: currIng } = recipeRows[0];
-        const { instructions: currInst } = recipeRows[0];
+        // const { ingredients: currIng } = recipeRows[0];
+        // const { instructions: currInst } = recipeRows[0];
         const { price: currPrice } = recipeRows[0];
+        const { prep_time: currPrep } = recipeRows[0];
         const { cook_time: currCook } = recipeRows[0];
         const { servings: currServ } = recipeRows[0];
         
         const updateName = name ? name : currName;
         const updateDes = description ? description: currDes;
-        const updateIng = ingredients ? ingredients: currIng;
-        const updateInst = instructions ? instructions: currInst;
+        // const updateIng = ingredients ? ingredients: currIng;
+        // const updateInst = instructions ? instructions: currInst;
         const updatePrice = price ? price: currPrice;
+        const updatePrep = prep_time ? prep_time: currPrep;
         const updateCook = cook_time ? cook_time: currCook;
         const updateServ = servings ? servings: currServ;
 
         const updateRecipeQuery = fastify.mysql.format(
-            `UPDATE starving_college_students.recipe SET name = ?, description = ?, ingredients = ?, instructions = ?,
-                price = ?, cook_time = ?, servings = ?
+            `UPDATE starving_college_students.recipes SET name = ?, description = ?, tags = JSON_ARRAY(?),
+                price = ?, prep_time = ?, cook_time = ?, servings = ?
             WHERE recipe_id = ?`,
-            [ updateName, updateDes, updateIng, updateInst, updatePrice, updateCook, updateServ, recipe_id ]
+            [ updateName, updateDes, tags, updatePrice, updatePrep, updateCook, updateServ, recipe_id ]
         );
 
         try {

@@ -2,7 +2,7 @@ const putInsructionsOpts = (fastify) => { return {
     schema: {
         params: {
             type: 'object',
-            required: { recipe_id },
+            required: [ 'recipe_id' ],
             properties: {
                 recipe_id: { type: 'integer' }
             }
@@ -14,7 +14,7 @@ const putInsructionsOpts = (fastify) => { return {
                 instructions: {
                     type: 'array',
                     items: {
-                        type: 'objects',
+                        type: 'object',
                         required: [ 'step_number', 'instruction_text' ],
                         properties: {
                             step_number: { type: 'integer' },

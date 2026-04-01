@@ -10,11 +10,13 @@ http:
     type: json
     data: |-
       {
-        "name": "Chicken Caesar Wraps",
-        "description": "Marinated chicken and lettuce wrapped in a tortilla.",
-        "price": 20.00,
-        "cook_time": 20,
-        "servings": 8
+        "name": "Dave's Favorite Chicken",
+        "description": "Chicken cooked in bacon grease, covered in cream of chicken, and topped with bacon and onions.",
+        "tags": [],
+        "price": 10.00,
+        "prep_time": 5,
+        "cook_time": 35,
+        "servings": 4
       }
   auth: inherit
 
