@@ -8,20 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeFilter = document.getElementById("time-filter");
     const resetBtn = document.getElementById("reset-filters");
 
-
-    // LOAD RECIPES FROM STORAGE
     function loadRecipes() {
-
         const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
 
         recipes.forEach(recipe => {
-
             const card = document.createElement("div");
             card.classList.add("favorite-card");
 
-            card.setAttribute("data-tag", recipe.tag);
-            card.setAttribute("data-time", recipe.time);
-            card.setAttribute("data-price", "20"); // placeholder
+            card.setAttribute("data-tag", recipe.tag || "dinner");
+            card.setAttribute("data-time", recipe.time || "30");
+            card.setAttribute("data-price", recipe.price || "20"); // ← uses saved price
 
             card.innerHTML = `
                 <button class="like-btn">🤍</button>
@@ -36,16 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadRecipes();
 
-
-    // ❤️ Like/Unlike Logic
     document.addEventListener("click", function(event) {
 
-        // LIKE BUTTON
         if (event.target.classList.contains("like-btn")) {
-
             const button = event.target;
             const card = button.closest(".favorite-card");
-
             if (!card) return;
 
             if (button.textContent === "🤍") {
@@ -57,36 +48,25 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-
-
-        // Delete button
         if (event.target.classList.contains("delete-btn")) {
-
             const card = event.target.closest(".favorite-card");
             if (!card) return;
 
             const name = card.querySelector("h3").textContent;
 
             let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
-
-            // Remove matching recipe
             recipes = recipes.filter(r => r.name !== name);
-
             localStorage.setItem("recipes", JSON.stringify(recipes));
 
-            // Remove from page
             card.remove();
         }
-
     });
 
-
-    // Filter Logic
     function filterRecipes() {
         const selectedTag = tagFilter.value;
         const selectedTime = timeFilter.value;
         const maxPrice = parseInt(priceInput.value);
-        
+
         const cards = document.querySelectorAll(".favorite-card");
 
         cards.forEach(card => {
@@ -110,8 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-    // Filter Controls
     priceInput.addEventListener("input", (e) => {
         priceValue.textContent = `$${e.target.value}`;
         filterRecipes();
