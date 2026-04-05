@@ -1,4 +1,4 @@
-# Starving College Students
+# Starving-College-Students
 
 Contributors: Javier Rentas, Cayden Champion, James Gassaway, Ethan Showers, Israel McHoul
 
