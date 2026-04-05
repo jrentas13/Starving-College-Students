@@ -1,6 +1,21 @@
-# Starving College Students Cookbook
+# Starving College Students
+
+Contributors: Javier Rentas, Cayden Champion, James Gassaway, Ethan Showers, Israel McHoul
 
 This is a web application for college students to share and discover affordable recipes.
+
+
+## Software Features
+
+The application includes the following features:
+
+- [x] User registration and login
+- [x] Browse recipes on the homepage
+- [x] Search functionality to find recipes
+- [x] View detailed recipes, including ingredients and instructions
+- [x] Upload your own recipes
+- [ ] Save favorite recipes to your profile
+- [ ] User profiles with saved recipes and bio
 
 ## Instructions for Build and Use
 
